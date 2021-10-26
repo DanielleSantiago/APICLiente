@@ -1,0 +1,43 @@
+<h1 class="mt-4">Clientes</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consulta</li>
+</ol>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <button class="btn btn-warning" (click)="novoCadastro()"><i class="fa fa-plus"></i> Novo</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed table-hover mt-4">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data Cadastro</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.id }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.dataCadastro }}</td>
+            <td>
+              <button class="btn btn-info mx-1" routerLink="/clientes-form/{{cliente.id}}">
+                <i class="far fa-edit"></i> Editar
+              </button>
+
+              <button class="btn btn-danger mx-1" (click)="apagar(cliente.id)">
+                <i class="far fa-trash-alt"></i> Apagar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
