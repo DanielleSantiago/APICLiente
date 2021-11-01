@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
     ServicoPrestadoRoutingModule,
     FormsModule,
     RouterModule
-    
+
   ], exports : [
     ServicoPrestadoFormComponent,
     ServicoPrestadoListaComponent

@@ -24,7 +24,7 @@
           <i class="fa fa-search mx-1"></i>Consultar
         </button>
 
-        <button type="button" routerLink="/servico-prestado-form"
+        <button type="button" routerLink="/servicos-prestados/form"
          class="btn btn-warning mt-3 mx-2 ">
           <i class="fa fa-plus mx-1"></i>Novo
         </button>
@@ -50,7 +50,7 @@
           <tr *ngFor="let s of lista">
             <td>{{ s.cliente.nome }}</td>
             <td>{{ s.descricao }}</td>
-            <td>{{ s.valor }}</td>
+            <td>{{ s.valor | currency: 'BRL'}}</td>
             <td>{{ s.data }}</td>
           </tr>
         </tbody>

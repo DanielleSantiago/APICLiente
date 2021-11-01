@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServicoPrestadoService } from './servico-prestado.service';
 import { LoginComponent } from './login/login.component'
 import { FormsModule } from '@angular/forms';
-import { LayoutComponent } from './layout/layout.component'
+import { LayoutComponent } from './layout/layout.component';
+import ptBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { AuthService } from './auth.service';
+
+registerLocaleData(ptBr);
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { LayoutComponent } from './layout/layout.component'
   ],
   providers: [
     ClientesService,
-    ServicoPrestadoService
+    ServicoPrestadoService,
+    AuthService,
+    {
+      provide: LOCALE_ID,
+      useValue: "pt"
+    }
   ],
   bootstrap: [AppComponent]
 })
